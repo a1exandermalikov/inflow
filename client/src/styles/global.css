@@ -1,0 +1,33 @@
+@import './colors.css';
+@import './fonts';
+
+:root {
+	--text-color: var(--color-zinc-50);
+	--text-muted: var(--color-zinc-500);
+	--radius: 3px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	-webkit-user-drag: none;
+	-moz-window-dragging: none;
+	font-family: var(--system-font);
+	font-weight: 600;
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	background-color: var(--color-zinc-950);
+	color: var(--color-zinc-50);
+}
+
+.icon {
+	color: var(--text-muted);
+}
+
+a{
+	text-decoration: none;
+}

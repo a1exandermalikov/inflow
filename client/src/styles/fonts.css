@@ -1,0 +1,277 @@
+/* Exo 2 */
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-ThinItalic.ttf')
+		format('truetype');
+	font-weight: 100;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-ExtraLight.ttf')
+		format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-ExtraLightItalic.ttf')
+		format('truetype');
+	font-weight: 200;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-LightItalic.ttf')
+		format('truetype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-Regular.ttf')
+		format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-MediumItalic.ttf')
+		format('truetype');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-SemiBold.ttf')
+		format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-SemiBoldItalic.ttf')
+		format('truetype');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-BoldItalic.ttf')
+		format('truetype');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-ExtraBold.ttf')
+		format('truetype');
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-ExtraBoldItalic.ttf')
+		format('truetype');
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	src: url('./src/assets/fonts/Exo_2/static/Exo2-BlackItalic.ttf')
+		format('truetype');
+	font-weight: 900;
+	font-style: italic;
+}
+
+/* Nunito Sans */
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('./src/assets/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf')
+		format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('./src/assets/fonts/Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf')
+		format('truetype');
+	font-weight: 100 900;
+	font-style: italic;
+}
+
+/* Quicksand */
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./src/assets/fonts/Quicksand/static/Quicksand-Light.ttf')
+		format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./src/assets/fonts/Quicksand/static/Quicksand-Regular.ttf')
+		format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./src/assets/fonts/Quicksand/static/Quicksand-Medium.ttf')
+		format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./src/assets/fonts/Quicksand/static/Quicksand-SemiBold.ttf')
+		format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./src/assets/fonts/Quicksand/static/Quicksand-Bold.ttf')
+		format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Special Elite */
+
+@font-face {
+	font-family: 'Special Elite';
+	src: url('./src/assets/fonts/Special_Elite/SpecialElite-Regular.ttf')
+		format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+:root {
+	--system-font: 'Quicksand';
+	--brand-font: 'Exo 2';
+	--text-font: 'Nunito Sans';
+	--decor-font: 'Special Elite';
+
+	--font-xs: 6px;
+	--font-sm: 7px;
+	--font-md: 8px;
+	--font-lg: 10px;
+	--font-xl: 13px;
+	--font-2xl: 15px;
+	--font-3xl: 18px;
+	--font-4xl: 24px;
+	--font-5xl: 30px;
+	--font-6xl: 36px;
+	--font-7xl: 48px;
+	--font-8xl: 60px;
+	--font-9xl: 72px;
+	--font-10xl: 90px;
+	--font-11xl: 108px;
+	--font-12xl: 128px;
+}
+
+/* Планшеты и меньше */
+@media (max-width: 768px) {
+	:root {
+		--font-xs: 5px;
+		--font-sm: 6px;
+		--font-md: 7px;
+		--font-lg: 9px;
+		--font-xl: 11px;
+		--font-2xl: 13px;
+		--font-3xl: 15px;
+		--font-4xl: 18px;
+		--font-5xl: 21px;
+		--font-6xl: 24px;
+		--font-7xl: 30px;
+		--font-8xl: 36px;
+		--font-9xl: 42px;
+		--font-10xl: 52px;
+		--font-11xl: 62px;
+		--font-12xl: 72px;
+	}
+}
+
+/* Мобильные телефоны */
+@media (max-width: 480px) {
+	:root {
+		--font-xs: 4px;
+		--font-sm: 5px;
+		--font-md: 6px;
+		--font-lg: 8px;
+		--font-xl: 10px;
+		--font-2xl: 12px;
+		--font-3xl: 14px;
+		--font-4xl: 16px;
+		--font-5xl: 18px;
+		--font-6xl: 20px;
+		--font-7xl: 24px;
+		--font-8xl: 28px;
+		--font-9xl: 32px;
+		--font-10xl: 38px;
+		--font-11xl: 44px;
+		--font-12xl: 52px;
+	}
+}
