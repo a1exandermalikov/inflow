@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react'
 
 export function CanvasBackground() {
 	const canvasRef = useRef<HTMLCanvasElement>(null)
-	const animationRef = useRef<number>()
-	const circlesRef = useRef<Circle[]>([])
+	const animationRef = useRef<number | null>(null)
+	const circlesRef = useRef<any[]>([])
 	const circlesCount = 35
 
 	useEffect(() => {
@@ -15,17 +15,17 @@ export function CanvasBackground() {
 		let width = window.innerWidth
 		let height = window.innerHeight
 
-		class Circle {
-			x: number
-			y: number
-			radius: number
-			speedX: number
-			speedY: number
-			baseAlpha: number
-			alpha: number
-			alphaDirection: number
-			colorPos: number
-			colorSpeed: number
+		class CircleClass {
+			x: number = 0
+			y: number = 0
+			radius: number = 0
+			speedX: number = 0
+			speedY: number = 0
+			baseAlpha: number = 0
+			alpha: number = 0
+			alphaDirection: number = 0
+			colorPos: number = 0
+			colorSpeed: number = 0
 
 			index: number
 			total: number
@@ -45,7 +45,6 @@ export function CanvasBackground() {
 				const row = Math.floor(this.index / cols)
 				const col = this.index % cols
 
-				// Позиция с небольшим рандомом внутри ячейки (~±25% от ширины/высоты ячейки)
 				const randX = (Math.random() - 0.5) * this.cellWidth * 0.5
 				const randY = (Math.random() - 0.5) * this.cellHeight * 0.5
 
@@ -55,18 +54,17 @@ export function CanvasBackground() {
 				this.radius = 15 + Math.random() * 40
 				this.speedX = (Math.random() - 0.5) * 0.4
 				this.speedY = (Math.random() - 0.5) * 0.4
-				this.baseAlpha = 0.0495 + Math.random() * 0.1096 // прозрачность чуть больше
+				this.baseAlpha = 0.0495 + Math.random() * 0.1096
 				this.alpha = this.baseAlpha
 				this.alphaDirection = Math.random() > 0.5 ? 1 : -1
 				this.colorPos = Math.random()
 				this.colorSpeed = (Math.random() - 0.5) * 0.002
 			}
 
-			update() {
+			update(width: number, height: number, mouse: { x: number; y: number }) {
 				this.x += this.speedX
 				this.y += this.speedY
 
-				// Отталкивание от краёв экрана
 				if (this.x < this.radius) {
 					this.speedX = Math.abs(this.speedX)
 					this.x = this.radius
@@ -92,7 +90,6 @@ export function CanvasBackground() {
 				if (this.colorPos > 1) this.colorPos = 0
 				if (this.colorPos < 0) this.colorPos = 1
 
-				// Реакция на мышь — отталкивание
 				const dx = this.x - mouse.x
 				const dy = this.y - mouse.y
 				const dist = Math.sqrt(dx * dx + dy * dy)
@@ -115,32 +112,10 @@ export function CanvasBackground() {
 					lerpColor(colorStart, colorEnd, this.colorPos) + this.alpha + ')'
 				ctx.fillStyle = color
 				ctx.shadowColor = color
-				ctx.shadowBlur = this.radius / 2 // чуть ярче свечение
+				ctx.shadowBlur = this.radius / 2
 				ctx.fill()
 			}
 		}
-
-		function resize() {
-			width = window.innerWidth
-			height = window.innerHeight
-			canvas.width = width
-			canvas.height = height
-
-			// Пересоздаем круги, чтобы обновить их позиции под новый размер
-			circlesRef.current = []
-			for (let i = 0; i < circlesCount; i++) {
-				circlesRef.current.push(new Circle(i, circlesCount, width, height))
-			}
-		}
-		resize()
-		window.addEventListener('resize', resize)
-
-		const mouse = { x: width / 2, y: height / 2 }
-		function handleMouseMove(e: MouseEvent) {
-			mouse.x = e.clientX
-			mouse.y = e.clientY
-		}
-		window.addEventListener('mousemove', handleMouseMove)
 
 		function lerpColor(a: string, b: string, t: number): string {
 			const ah = parseInt(a.replace('#', ''), 16)
@@ -160,10 +135,31 @@ export function CanvasBackground() {
 			return `rgba(${rr.toFixed(0)},${rg.toFixed(0)},${rb.toFixed(0)},`
 		}
 
+		function resize() {
+			width = window.innerWidth
+			height = window.innerHeight
+			if (canvas) canvas.width = width
+			if (canvas) canvas.height = height
+
+			circlesRef.current = []
+			for (let i = 0; i < circlesCount; i++) {
+				circlesRef.current.push(new CircleClass(i, circlesCount, width, height))
+			}
+		}
+		resize()
+		window.addEventListener('resize', resize)
+
+		const mouse = { x: width / 2, y: height / 2 }
+		function handleMouseMove(e: MouseEvent) {
+			mouse.x = e.clientX
+			mouse.y = e.clientY
+		}
+		window.addEventListener('mousemove', handleMouseMove)
+
 		function animate() {
-			ctx.clearRect(0, 0, width, height)
+			if (ctx) ctx.clearRect(0, 0, width, height)
 			for (const c of circlesRef.current) {
-				c.update()
+				c.update(width, height, mouse)
 				c.draw(ctx)
 			}
 			animationRef.current = requestAnimationFrame(animate)
