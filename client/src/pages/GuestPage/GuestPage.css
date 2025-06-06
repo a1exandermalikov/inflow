@@ -7,7 +7,8 @@
 	justify-content: center;
 	position: relative;
 	gap: 20px;
-	height: 90dvh;
+	height: 90svh;
+	overflow: auto;
 }
 
 .hero h2 {
@@ -113,7 +114,8 @@
 	.hero {
 		padding: 10px 20px;
 		gap: 20px;
-		height: 80dvh;
+		height: 84svh;
+		overflow: auto;
 	}
 	.hero h2 {
 		font-size: var(--font-10xl); /* было 4xl */

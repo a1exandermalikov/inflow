@@ -1,12 +1,19 @@
 import './header.css'
+import { useState } from 'react'
 import { Icon } from '../Icon/Icon'
 import { Button } from '../Button/Button'
+import { Navigation } from '../Navigation/Navigation'
 
 export function Header() {
+	const [menuOpen, setMenuOpen] = useState(false)
+
+	const toggleMenu = () => setMenuOpen(prev => !prev)
+	const closeMenu = () => setMenuOpen(false)
+
 	return (
 		<header className='header'>
 			<div className='top-row'>
-				<Button className='header-icon'>
+				<Button className='header-icon' onClick={toggleMenu}>
 					<Icon name='fa-solid fa-bars' />
 				</Button>
 
@@ -31,10 +38,14 @@ export function Header() {
 					<Button path='/register' variant='default'>
 						Register
 					</Button>
-					<Button path='login' variant='primary'>
+					<Button path='/login' variant='primary'>
 						Login
 					</Button>
 				</div>
+			</div>
+
+			<div className='mobile-nav'>
+				<Navigation isOpen={menuOpen} onClose={closeMenu} />
 			</div>
 		</header>
 	)
