@@ -6,7 +6,7 @@ import { Button } from '../../components/Button/Button'
 export function GuestPage() {
 	document.title = 'Welcome to Information Flow'
 	return (
-		<>
+		<div className='guest-page'>
 			<Header />
 			<div className='hero'>
 				<CanvasBackground />
@@ -33,6 +33,6 @@ export function GuestPage() {
 					</Button>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }

@@ -5,13 +5,12 @@
 	left: 0;
 	bottom: 0;
 	padding: 15px;
-	z-index: 1000;
 	width: 300px;
 	border-right: 2px solid var(--color-zinc-800);
 	transform: translateX(-100%);
-	opacity: 0;
-	transition: transform 0.3s ease, opacity 0.3s ease;
-	pointer-events: none;
+	visibility: hidden;
+	transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+	z-index: 1000;
 }
 
 .navigation-header {
@@ -90,13 +89,24 @@
 /* Когда открыто */
 .navigation.open {
 	transform: translateX(0);
-	opacity: 1;
-	pointer-events: all;
+	visibility: visible;
 }
 
 /* Когда закрыто (можно опустить, если дефолт closed) */
 .navigation.closed {
 	transform: translateX(-100%);
-	opacity: 0;
 	pointer-events: none;
+}
+
+.mobile-nav-overlay {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 999;
+	display: flex;
+}
+
+.navigation {
+	z-index: 1000;
+	/* остальные стили как у тебя */
 }

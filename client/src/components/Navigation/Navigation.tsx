@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Icon } from '../Icon/Icon'
 import './Navigation.css'
@@ -10,6 +11,16 @@ interface NavigationProps {
 
 export function Navigation({ isOpen = false, onClose }: NavigationProps) {
 	const location = useLocation()
+	const [isVisible, setIsVisible] = useState(false)
+
+	// Когда компонент монтируется, активируем .open класс с задержкой в кадр
+	useEffect(() => {
+		if (isOpen) {
+			requestAnimationFrame(() => setIsVisible(true))
+		} else {
+			setIsVisible(false)
+		}
+	}, [isOpen])
 
 	const navItems = [
 		{ name: 'Home', path: '/', icon: 'fa-solid fa-house' },
@@ -23,7 +34,7 @@ export function Navigation({ isOpen = false, onClose }: NavigationProps) {
 	]
 
 	return (
-		<nav className={`navigation ${isOpen ? 'open' : 'closed'}`}>
+		<nav className={`navigation ${isVisible ? 'open' : 'closed'}`}>
 			<div className='navigation-header'>
 				<img className='logo' src='./logo.png' alt='logo' />
 				<Button className='header-icon' onClick={onClose}>
