@@ -8,52 +8,64 @@ export function TopDev() {
 			<Header />
 			<div className='top-dev'>
 				<DevCard
-					name='Alexander Malikov'
+					name='alexander_malikov'
 					status='working'
-					role='frontend developer'
-					level='senior'
-					followers={123}
+					role='backend developer'
+					level='junior'
+					followers={121}
 					avatarUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIemFD4Zyz_rHmyh3UlJLJW8UnzC50YUbUruTVf6sv1eS0mQuEQrq98CriOSvD3ZZx-s&usqp=CAU'
 				/>
 				<DevCard
-					name='Alexander Malikov'
-					status='working'
+					name='ktoto'
+					status='available'
 					role='frontend developer'
-					level='senior'
-					followers={123}
-					avatarUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIemFD4Zyz_rHmyh3UlJLJW8UnzC50YUbUruTVf6sv1eS0mQuEQrq98CriOSvD3ZZx-s&usqp=CAU'
+					level='middle'
+					followers={8492}
+					avatarUrl='https://img.freepik.com/free-photo/modern-minimalist-office-black-white_23-2151777595.jpg?semt=ais_hybrid&w=740'
 				/>
 				<DevCard
-					name='Alexander Malikov'
-					status='working'
+					name='malikovdev'
+					status='on vacation'
 					role='frontend developer'
 					level='senior'
-					followers={123}
-					avatarUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIemFD4Zyz_rHmyh3UlJLJW8UnzC50YUbUruTVf6sv1eS0mQuEQrq98CriOSvD3ZZx-s&usqp=CAU'
+					followers={232}
+					avatarUrl='https://img.freepik.com/free-photo/still-life-device-table_23-2150994382.jpg'
 				/>
+
 				<DevCard
-					name='Alexander Malikov'
+					name='anna_code'
 					status='working'
-					role='frontend developer'
-					level='senior'
-					followers={123}
-					avatarUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIemFD4Zyz_rHmyh3UlJLJW8UnzC50YUbUruTVf6sv1eS0mQuEQrq98CriOSvD3ZZx-s&usqp=CAU'
+					role='backend developer'
+					level='middle'
+					followers={145}
+					avatarUrl='https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80'
 				/>
+
 				<DevCard
-					name='Ozodbek Sobirjonovich'
+					name='dev_john'
 					status='working'
-					role='frontend developer'
-					level='senior'
-					followers={123}
-					avatarUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIemFD4Zyz_rHmyh3UlJLJW8UnzC50YUbUruTVf6sv1eS0mQuEQrq98CriOSvD3ZZx-s&usqp=CAU'
+					role='fullstack developer'
+					level='junior'
+					followers={98}
+					avatarUrl='https://randomuser.me/api/portraits/men/32.jpg'
 				/>
+
 				<DevCard
-					name='Alexander Malikov'
-					status='working'
-					role='frontend developer'
+					name='lisa_tech'
+					status='on vacation'
+					role='UI/UX designer'
 					level='senior'
-					followers={123}
-					avatarUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIemFD4Zyz_rHmyh3UlJLJW8UnzC50YUbUruTVf6sv1eS0mQuEQrq98CriOSvD3ZZx-s&usqp=CAU'
+					followers={510}
+					avatarUrl='https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80'
+				/>
+
+				<DevCard
+					name='alex_net'
+					status='working'
+					role='devops engineer'
+					level='middle'
+					followers={177}
+					avatarUrl='https://randomuser.me/api/portraits/men/44.jpg'
 				/>
 			</div>
 		</div>

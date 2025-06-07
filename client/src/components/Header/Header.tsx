@@ -92,7 +92,7 @@ export function Header() {
 				</div>
 
 				<div className='register-option'>
-					<Button path='/register' variant='default'>
+					<Button path='/register' variant='secondary'>
 						Register
 					</Button>
 					<Button path='/login' variant='primary'>

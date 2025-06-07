@@ -1,12 +1,12 @@
 .navigation {
-	background-color: var(--color-zinc-900);
+	background-color: var(--color-zinc-950);
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	padding: 15px;
 	width: 300px;
-	border-right: 2px solid var(--color-zinc-800);
+	border-right: 2px solid var(--color-zinc-900);
 	transform: translateX(-100%);
 	visibility: hidden;
 	transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
@@ -22,6 +22,7 @@
 
 .navigation-header .header-icon {
 	padding: 11px 13px !important;
+	background-color: var(--color-zinc-900);
 }
 
 .navigation-list {
@@ -42,7 +43,7 @@
 	transition: color 0.2s;
 	border-radius: var(--radius);
 	color: var(--text-muted);
-	border: 2px solid var(--color-zinc-900);
+	border: 2px solid var(--color-zinc-950);
 }
 
 .navigation-link i {
@@ -51,7 +52,7 @@
 }
 
 .navigation-link:hover {
-	background-color: var(--color-zinc-800);
+	background-color: var(--color-zinc-900);
 }
 
 .navigation-link.active {
@@ -69,7 +70,7 @@
 
 @media (max-width: 480px) {
 	.navigation {
-		width: 70%;
+		width: 60%;
 	}
 
 	.navigation-link {

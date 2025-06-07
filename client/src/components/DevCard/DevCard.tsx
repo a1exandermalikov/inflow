@@ -18,7 +18,12 @@ export function DevCard({
 	followers = '0',
 	avatarUrl = './logo.png',
 }: DevCardProps) {
-	const statusClass = `status--${status.replace(/\s+/g, '-')}` // Преобразуем "on vacation" → "status--on-vacation"
+	const statusClass = `status--${status.replace(/\s+/g, '-')}`
+	const levelClass = `level--${level}`
+
+	// Если в отпуске, variant = 'disabled', кнопка disabled
+	const messageVariant = status === 'on vacation' ? 'disabled' : 'default'
+	const isDisabled = status === 'on vacation'
 
 	return (
 		<div className='dev-card'>
@@ -29,17 +34,21 @@ export function DevCard({
 				<div className='dev-card__info'>
 					<div className='dev-card__title'>
 						<h3>{name}</h3>
-						<p>{`${level} ${role}`}</p>
+						<p>
+							<span className={levelClass}>{`${level}`}</span> {`${role}`}
+						</p>
 					</div>
 					<div className='dev-card__status'>
-						<p>{followers} followers</p>
+						<p>{followers} f.</p>
 						<span className={statusClass}>{status}</span>
 					</div>
 				</div>
 			</div>
 			<div className='dev-card__buttons'>
-				<Button>Message</Button>
-				<Button variant='safe'>Follow</Button>
+				<Button variant={messageVariant} disabled={isDisabled}>
+					Message
+				</Button>
+				<Button variant='secondary'>Follow</Button>
 			</div>
 		</div>
 	)

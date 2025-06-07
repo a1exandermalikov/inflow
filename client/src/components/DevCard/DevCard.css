@@ -6,7 +6,6 @@
 	flex-direction: column;
 	gap: 15px;
 	color: var(--text-color);
-	border-radius: var(--radius);
 	overflow: hidden;
 }
 
@@ -19,6 +18,7 @@
 	overflow: hidden;
 	padding: 20px;
 	background-color: var(--color-zinc-900);
+	border-radius: var(--radius);
 }
 
 /* Аватар */
@@ -118,20 +118,38 @@
 
 /* Статусы */
 .status--available {
-	background-color: var(--positive-color);
+	background-color: var(--color-rose-600);
 }
 
 .status--working {
-	background-color: var(--warning-color);
+	background-color: var(--color-green-600);
 }
 
 .status--on-vacation {
-	background-color: var(--negative-color);
+	background-color: var(--color-violet-700);
+}
+
+.level--junior {
+	color: var(--color-green-600);
+	font-weight: 600;
+}
+
+.level--middle {
+	color: var(--color-rose-600);
+	font-weight: 600;
+}
+
+.level--senior {
+	color: var(--color-violet-600);
+	font-weight: 600;
 }
 
 @media (max-width: 600px) {
+	.dev-card {
+		gap: 15px;
+	}
 	.dev-card__content {
-		padding: 20px 15px;
+		padding: 20px;
 	}
 	.dev-card__image {
 		width: 90px;
@@ -149,5 +167,13 @@
 
 	.dev-card__status span {
 		font-size: var(--font-xl);
+	}
+
+	.dev-card__buttons {
+		gap: 20px;
+	}
+
+	.dev-card__buttons .btn-component {
+		padding: 12px;
 	}
 }
