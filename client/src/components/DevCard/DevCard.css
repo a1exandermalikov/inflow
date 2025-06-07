@@ -28,12 +28,15 @@
 	overflow: hidden;
 	border-radius: 50%;
 	flex-shrink: 0;
+	border: 3px solid var(--color-zinc-800);
+	padding: 2px;
 }
 
 .dev-card__image img {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+	border-radius: 50%;
 }
 
 /* Информация */
@@ -57,11 +60,15 @@
 
 .dev-card__title h3 {
 	color: var(--text-color);
+	font-family: var(--text-font);
+	font-weight: 700;
 }
 
 .dev-card__title p {
 	color: var(--text-muted);
 	font-size: var(--font-xl);
+	font-weight: 500;
+	width: max-content;
 }
 
 .dev-card__title h3,
@@ -87,6 +94,7 @@
 	font-size: var(--font-xl);
 	max-width: 60%;
 	flex-shrink: 1;
+	font-weight: 700;
 }
 
 .dev-card__status span {
@@ -118,11 +126,11 @@
 
 /* Статусы */
 .status--available {
-	background-color: var(--color-rose-600);
+	background-color: var(--color-rose-700);
 }
 
 .status--working {
-	background-color: var(--color-green-600);
+	background-color: var(--color-green-700);
 }
 
 .status--on-vacation {
@@ -130,18 +138,21 @@
 }
 
 .level--junior {
-	color: var(--color-green-600);
+	color: var(--color-green-500);
 	font-weight: 600;
+	font-family: var(--text-font);
 }
 
 .level--middle {
-	color: var(--color-rose-600);
+	color: var(--color-rose-500);
 	font-weight: 600;
+	font-family: var(--text-font);
 }
 
 .level--senior {
-	color: var(--color-violet-600);
+	color: var(--color-violet-500);
 	font-weight: 600;
+	font-family: var(--text-font);
 }
 
 @media (max-width: 600px) {

@@ -17,6 +17,7 @@
 	font-family: var(--system-font);
 	font-weight: 600;
 	-webkit-tap-highlight-color: transparent;
+	user-select: none;
 }
 
 body {
@@ -30,4 +31,46 @@ body {
 
 a {
 	text-decoration: none;
+}
+
+.loading {
+	position: relative;
+	color: transparent !important; /* скрываем текст */
+	background-color: var(--color-zinc-800) !important; /* серый фон */
+	border-radius: var(--radius);
+	overflow: hidden;
+
+	/* Скрываем содержимое, но фон остаётся */
+	user-select: none; /* запрет выделения */
+}
+
+.loading > * {
+	visibility: hidden; /* скрываем дочерние элементы */
+}
+
+.loading::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -150px;
+	height: 100%;
+	width: 150px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.15),
+		transparent
+	);
+	animation: loading-shimmer 1.5s infinite;
+	border-radius: var(--radius);
+	z-index: 1;
+}
+
+@keyframes loading-shimmer {
+	0% {
+		left: -150px;
+	}
+	100% {
+		left: 100%;
+	}
 }
