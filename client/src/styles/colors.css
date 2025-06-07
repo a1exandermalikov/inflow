@@ -284,4 +284,8 @@
 	--color-rose-800: #9f1239;
 	--color-rose-900: #881337;
 	--color-rose-950: #4c0519;
+
+	--positive-color: var(--color-green-500); /* зелёный */
+	--negative-color: var(--color-red-600); /* красный */
+	--warning-color: var(--color-orange-400); /* жёлтый */
 }
