@@ -67,7 +67,7 @@ header {
 	min-width: 150px;
 	display: flex;
 	align-items: stretch;
-	max-width: 500px;
+	max-width: 600px;
 	margin-right: auto;
 	margin-left: auto;
 	transition: max-width 0.2s ease;

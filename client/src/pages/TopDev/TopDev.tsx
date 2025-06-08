@@ -10,85 +10,63 @@ interface TopDevProps {
 
 interface DevData {
 	name: string
-	status: string
+	status: 'available' | 'working' | 'on vacation'
 	role: string
-	level: string
+	level: 'junior' | 'middle' | 'senior'
 	followers: number
 	avatarUrl: string
 }
 
-const devsData: DevData[] = [
-	{
-		name: 'alexander_malikov',
-		status: 'available',
-		role: 'backend developer',
-		level: 'junior',
-		followers: 121,
-		avatarUrl:
-			'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIemFD4Zyz_rHmyh3UlJLJW8UnzC50YUbUruTVf6sv1eS0mQuEQrq98CriOSvD3ZZx-s&usqp=CAU',
-	},
-	{
-		name: 'ktoto',
-		status: 'working',
-		role: 'frontend developer',
-		level: 'middle',
-		followers: 8492,
-		avatarUrl:
-			'https://img.freepik.com/free-photo/modern-minimalist-office-black-white_23-2151777595.jpg?semt=ais_hybrid&w=740',
-	},
-	{
-		name: 'malikovdev',
-		status: 'on vacation',
-		role: 'frontend developer',
-		level: 'senior',
-		followers: 232,
-		avatarUrl:
-			'https://img.freepik.com/free-photo/still-life-device-table_23-2150994382.jpg',
-	},
-	{
-		name: 'anna_code',
-		status: 'available',
-		role: 'backend developer',
-		level: 'middle',
-		followers: 145,
-		avatarUrl:
-			'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'dev_john',
-		status: 'working',
-		role: 'fullstack developer',
-		level: 'junior',
-		followers: 98,
-		avatarUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
-	},
-	{
-		name: 'lisa_tech',
-		status: 'working',
-		role: 'UI/UX designer',
-		level: 'senior',
-		followers: 510,
-		avatarUrl:
-			'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'alex_net',
-		status: 'on vacation',
-		role: 'devops engineer',
-		level: 'middle',
-		followers: 177,
-		avatarUrl: 'https://randomuser.me/api/portraits/men/44.jpg',
-	},
+const roles = [
+	'backend developer',
+	'frontend developer',
+	'fullstack developer',
+	'UI/UX designer',
+	'devops engineer',
+	'mobile developer',
+	'QA engineer',
+	'data scientist',
 ]
+
+const levels: DevData['level'][] = ['junior', 'middle', 'senior']
+
+const statuses: DevData['status'][] = ['available', 'working', 'on vacation']
+
+function getRandomInt(min: number, max: number) {
+	return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+function generateDevs(count: number): DevData[] {
+	return Array.from({ length: count }, (_, i) => {
+		const status = statuses[i % statuses.length]
+		const role = roles[getRandomInt(0, roles.length - 1)]
+		const level = levels[getRandomInt(0, levels.length - 1)]
+		const followers = getRandomInt(50, 10000)
+		const gender = i % 2 === 0 ? 'men' : 'women'
+		const avatarId = getRandomInt(1, 99)
+		const avatarUrl = `https://randomuser.me/api/portraits/${gender}/${avatarId}.jpg`
+
+		return {
+			name: `dev_user_${i + 1}`,
+			status,
+			role,
+			level,
+			followers,
+			avatarUrl,
+		}
+	})
+}
 
 export function TopDev({ loading }: TopDevProps) {
 	document.title = 'Top Developers'
+
+	const [devs] = useState<DevData[]>(() => generateDevs(100))
 
 	const [roleFilter, setRoleFilter] = useState<string>('all')
 	const [levelFilter, setLevelFilter] = useState<string>('all')
 	const [statusFilter, setStatusFilter] = useState<string>('all')
 
-	const filteredDevs = devsData.filter(dev => {
+	const filteredDevs = devs.filter(dev => {
 		const roleMatches = roleFilter === 'all' || dev.role === roleFilter
 		const levelMatches = levelFilter === 'all' || dev.level === levelFilter
 		const statusMatches = statusFilter === 'all' || dev.status === statusFilter
@@ -104,11 +82,11 @@ export function TopDev({ loading }: TopDevProps) {
 					value={roleFilter}
 				>
 					<option value='all'>All Roles</option>
-					<option value='frontend developer'>Frontend Developer</option>
-					<option value='backend developer'>Backend Developer</option>
-					<option value='fullstack developer'>Fullstack Developer</option>
-					<option value='devops engineer'>DevOps Engineer</option>
-					<option value='UI/UX designer'>UI/UX Designer</option>
+					{roles.map(r => (
+						<option key={r} value={r}>
+							{r.charAt(0).toUpperCase() + r.slice(1)}
+						</option>
+					))}
 				</select>
 
 				<select
@@ -116,9 +94,11 @@ export function TopDev({ loading }: TopDevProps) {
 					value={levelFilter}
 				>
 					<option value='all'>All Levels</option>
-					<option value='junior'>Junior</option>
-					<option value='middle'>Middle</option>
-					<option value='senior'>Senior</option>
+					{levels.map(l => (
+						<option key={l} value={l}>
+							{l.charAt(0).toUpperCase() + l.slice(1)}
+						</option>
+					))}
 				</select>
 
 				<select
@@ -126,9 +106,11 @@ export function TopDev({ loading }: TopDevProps) {
 					value={statusFilter}
 				>
 					<option value='all'>All Statuses</option>
-					<option value='available'>Available</option>
-					<option value='working'>Working</option>
-					<option value='on vacation'>On Vacation</option>
+					{statuses.map(s => (
+						<option key={s} value={s}>
+							{s.charAt(0).toUpperCase() + s.slice(1)}
+						</option>
+					))}
 				</select>
 			</div>
 
@@ -139,9 +121,9 @@ export function TopDev({ loading }: TopDevProps) {
 						key={dev.name}
 						loading={loading}
 						name={dev.name}
-						status={dev.status as 'available' | 'working' | 'on vacation'}
+						status={dev.status}
 						role={dev.role}
-						level={dev.level as 'junior' | 'middle' | 'senior'}
+						level={dev.level}
 						followers={dev.followers}
 						avatarUrl={dev.avatarUrl}
 					/>

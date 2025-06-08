@@ -89,17 +89,19 @@
 	gap: 10px;
 }
 
-.dev-card__status p {
+.dev-card__subscribers {
+	display: flex;
+	align-items: center;
+	gap: 5px;
 	color: var(--text-muted);
 	font-size: var(--font-xl);
 	max-width: 60%;
-	flex-shrink: 1;
 	font-weight: 700;
 }
 
 .dev-card__status span {
 	font-size: var(--font-lg);
-	padding: 7px 20px;
+	padding: 6px 20px;
 	border-radius: var(--radius);
 	font-weight: 800;
 	flex-shrink: 0;
@@ -127,18 +129,21 @@
 /* Статусы */
 .status--available {
 	background-color: var(--color-rose-700);
+	border: 2px solid var(--color-rose-500);
 }
 
 .status--working {
-	background-color: var(--color-green-700);
+	background-color: var(--color-emerald-700);
+	border: 2px solid var(--color-emerald-500);
 }
 
 .status--on-vacation {
 	background-color: var(--color-violet-700);
+	border: 2px solid var(--color-violet-500);
 }
 
 .level--junior {
-	color: var(--color-green-500);
+	color: var(--color-emerald-500);
 	font-weight: 600;
 	font-family: var(--text-font);
 }
@@ -186,5 +191,15 @@
 
 	.dev-card__buttons .btn-component {
 		padding: 12px;
+	}
+
+	.dev-card__subscribers {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		color: var(--text-muted);
+		font-size: var(--font-2xl);
+		max-width: 60%;
+		font-weight: 700;
 	}
 }

@@ -1,5 +1,6 @@
 import './DevCard.css'
 import { Button } from '../Button/Button'
+import { Icon } from '../Icon/Icon'
 
 interface DevCardProps {
 	loading?: boolean
@@ -43,7 +44,9 @@ export function DevCard({
 						</p>
 					</div>
 					<div className={`dev-card__status ${loadingClass}`}>
-						<p>{followers} f.</p>
+						<div className='dev-card__subscribers'>
+							<Icon name='fa-solid fa-users'></Icon> {followers}
+						</div>
 						<span className={`${statusClass} ${loadingClass}`}>{status}</span>
 					</div>
 				</div>

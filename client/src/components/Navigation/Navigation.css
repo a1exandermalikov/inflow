@@ -10,7 +10,7 @@
 	transform: translateX(-100%);
 	visibility: hidden;
 	transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-	z-index: 1000;
+	z-index: 5;
 }
 
 .navigation-header {
@@ -102,7 +102,7 @@
 	inset: 0;
 	background-color: rgba(0, 0, 0, 0.42);
 	backdrop-filter: blur(1px);
-	z-index: 999;
+	z-index: 4;
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.3s ease, visibility 0.3s ease;
