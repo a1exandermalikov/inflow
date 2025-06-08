@@ -1,10 +1,48 @@
 .top-dev {
 	display: grid;
 	gap: 30px;
-	padding: 25px 15px;
+	padding: 20px 15px;
 	box-sizing: border-box;
 	margin: 0 auto;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.top-dev-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	padding: 5px 15px 20px;
+	background-color: var(--color-zinc-900);
+}
+
+.top-dev-filters select {
+	appearance: none; /* Убираем системную стрелку */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding: 8px 12px;
+	border: none;
+	border-radius: var(--radius);
+	background-color: var(--color-zinc-800);
+	color: var(--text-muted);
+	font-size: var(--font-xl);
+	outline: none;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+	cursor: pointer;
+}
+
+.top-dev-filters select:hover {
+	background-color: var(--color-zinc-700);
+}
+
+.top-dev-filters select:focus {
+	background-color: var(--color-zinc-700);
+	color: var(--text-color);
+}
+
+.top-dev-filters select option {
+	background-color: var(--color-zinc-800);
+	color: var(--text-muted);
+	font-size: var(--font-xl);
 }
 
 /* Для средних экранов (планшеты и небольшие десктопы) */

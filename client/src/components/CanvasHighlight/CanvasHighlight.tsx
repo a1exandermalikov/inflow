@@ -46,8 +46,8 @@ export const CanvasHighlight: React.FC = () => {
 				mouse.y,
 				radius
 			)
-			gradient.addColorStop(0, 'rgba(185, 28, 28, 0.02)') // центр — почти прозрачный
-			gradient.addColorStop(1, 'rgba(185, 28, 28, 0)') // край — полностью прозрачный
+			gradient.addColorStop(0, 'rgba(185, 28, 28, 0.02)')
+			gradient.addColorStop(1, 'rgba(185, 28, 28, 0)')
 
 			ctx.globalCompositeOperation = 'lighter'
 			ctx.fillStyle = gradient
@@ -71,7 +71,7 @@ export const CanvasHighlight: React.FC = () => {
 		<canvas
 			ref={canvasRef}
 			style={{
-				position: 'absolute',
+				position: 'fixed', // 🔧 фиксируем на экране
 				top: 0,
 				left: 0,
 				width: '100vw',

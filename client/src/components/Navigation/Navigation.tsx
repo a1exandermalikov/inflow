@@ -13,7 +13,6 @@ export function Navigation({ isOpen = false, onClose }: NavigationProps) {
 	const location = useLocation()
 	const [isVisible, setIsVisible] = useState(false)
 
-	// Когда компонент монтируется, активируем .open класс с задержкой в кадр
 	useEffect(() => {
 		if (isOpen) {
 			requestAnimationFrame(() => setIsVisible(true))
@@ -34,28 +33,38 @@ export function Navigation({ isOpen = false, onClose }: NavigationProps) {
 	]
 
 	return (
-		<nav className={`navigation ${isVisible ? 'open' : 'closed'}`}>
-			<div className='navigation-header'>
-				<img className='logo' src='./logo.png' alt='logo' />
-				<Button className='header-icon' onClick={onClose}>
-					<Icon name='fa-solid fa-xmark' />
-				</Button>
-			</div>
-			<ul className='navigation-list'>
-				{navItems.map(item => (
-					<li key={item.path} className='navigation-item'>
-						<Link
-							to={item.path}
-							className={`navigation-link ${
-								location.pathname === item.path ? 'active' : ''
-							}`}
-						>
-							<Icon name={item.icon} />
-							<span className='link-text'>{item.name}</span>
-						</Link>
-					</li>
-				))}
-			</ul>
-		</nav>
+		<>
+			{/* Плавный overlay */}
+			{isOpen && (
+				<div
+					className={`mobile-nav-overlay ${isVisible ? 'show' : ''}`}
+					onClick={onClose}
+				/>
+			)}
+
+			<nav className={`navigation ${isVisible ? 'open' : 'closed'}`}>
+				<div className='navigation-header'>
+					<img className='logo' src='./logo.png' alt='logo' />
+					<Button className='header-icon' onClick={onClose}>
+						<Icon name='fa-solid fa-xmark' />
+					</Button>
+				</div>
+				<ul className='navigation-list'>
+					{navItems.map(item => (
+						<li key={item.path} className='navigation-item'>
+							<Link
+								to={item.path}
+								className={`navigation-link ${
+									location.pathname === item.path ? 'active' : ''
+								}`}
+							>
+								<Icon name={item.icon} />
+								<span className='link-text'>{item.name}</span>
+							</Link>
+						</li>
+					))}
+				</ul>
+			</nav>
+		</>
 	)
 }

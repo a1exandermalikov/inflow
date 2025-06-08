@@ -37,6 +37,7 @@ a {
 	position: relative;
 	color: transparent !important; /* скрываем текст */
 	background-color: var(--color-zinc-800) !important; /* серый фон */
+	opacity: 1 !important;
 	border-radius: var(--radius);
 	overflow: hidden;
 
@@ -58,7 +59,7 @@ a {
 	background: linear-gradient(
 		90deg,
 		transparent,
-		rgba(255, 255, 255, 0.15),
+		rgba(255, 255, 255, 0.049),
 		transparent
 	);
 	animation: loading-shimmer 1.5s infinite;

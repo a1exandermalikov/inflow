@@ -38,11 +38,10 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
-	color: inherit;
+	color: var(--text-muted);
 	text-decoration: none;
 	transition: color 0.2s;
 	border-radius: var(--radius);
-	color: var(--text-muted);
 	border: 2px solid var(--color-zinc-950);
 }
 
@@ -87,27 +86,29 @@
 	}
 }
 
-/* Когда открыто */
 .navigation.open {
 	transform: translateX(0);
 	visibility: visible;
 }
 
-/* Когда закрыто (можно опустить, если дефолт closed) */
 .navigation.closed {
 	transform: translateX(-100%);
 	pointer-events: none;
 }
 
+/* Overlay */
 .mobile-nav-overlay {
 	position: fixed;
 	inset: 0;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.42);
+	backdrop-filter: blur(1px);
 	z-index: 999;
-	display: flex;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.navigation {
-	z-index: 1000;
-	/* остальные стили как у тебя */
+.mobile-nav-overlay.show {
+	opacity: 1;
+	visibility: visible;
 }

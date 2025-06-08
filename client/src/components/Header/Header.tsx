@@ -23,13 +23,7 @@ export function Header() {
 	const closeMenu = () => setMenuOpen(false)
 	const openMenu = () => setMenuOpen(true)
 
-	const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-		if ((e.target as HTMLElement).classList.contains('mobile-nav-overlay')) {
-			closeMenu()
-		}
-	}
-
-	// Swipe logic
+	// Swipe support
 	useEffect(() => {
 		const handleTouchStart = (e: TouchEvent) => {
 			touchStartX.current = e.touches[0].clientX
@@ -45,10 +39,8 @@ export function Header() {
 			const deltaX = touchEndX.current - touchStartX.current
 
 			if (deltaX > 80) {
-				// Swipe right
 				openMenu()
 			} else if (deltaX < -80) {
-				// Swipe left
 				closeMenu()
 			}
 
@@ -101,11 +93,7 @@ export function Header() {
 				</div>
 			</div>
 
-			{isRendered && (
-				<div className='mobile-nav-overlay' onClick={handleOverlayClick}>
-					<Navigation isOpen={menuOpen} onClose={closeMenu} />
-				</div>
-			)}
+			{isRendered && <Navigation isOpen={menuOpen} onClose={closeMenu} />}
 		</header>
 	)
 }

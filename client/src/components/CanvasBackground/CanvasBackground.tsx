@@ -16,16 +16,16 @@ export function CanvasBackground() {
 		let height = window.innerHeight
 
 		class CircleClass {
-			x: number = 0
-			y: number = 0
-			radius: number = 0
-			speedX: number = 0
-			speedY: number = 0
-			baseAlpha: number = 0
-			alpha: number = 0
-			alphaDirection: number = 0
-			colorPos: number = 0
-			colorSpeed: number = 0
+			x = 0
+			y = 0
+			radius = 0
+			speedX = 0
+			speedY = 0
+			baseAlpha = 0
+			alpha = 0
+			alphaDirection = 0
+			colorPos = 0
+			colorSpeed = 0
 
 			index: number
 			total: number
@@ -178,7 +178,7 @@ export function CanvasBackground() {
 		<canvas
 			ref={canvasRef}
 			style={{
-				position: 'fixed',
+				position: 'fixed', // 🔒 зафиксировано на фоне
 				top: 0,
 				left: 0,
 				width: '100%',
