@@ -1,8 +1,4 @@
-.guest-page {
-	display: flex;
-	flex-direction: column;
-	height: 100svh;
-}
+
 
 .hero {
 	display: flex;

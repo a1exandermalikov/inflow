@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { DevCard } from '../../components/DevCard/DevCard'
 import { Header } from '../../components/Header/Header'
 import './TopDev.css'
@@ -29,7 +29,6 @@ const roles = [
 ]
 
 const levels: DevData['level'][] = ['junior', 'middle', 'senior']
-
 const statuses: DevData['status'][] = ['available', 'working', 'on vacation']
 
 function getRandomInt(min: number, max: number) {
@@ -66,6 +65,9 @@ export function TopDev({ loading }: TopDevProps) {
 	const [levelFilter, setLevelFilter] = useState<string>('all')
 	const [statusFilter, setStatusFilter] = useState<string>('all')
 
+	const [visibleCount, setVisibleCount] = useState(20)
+	const loaderRef = useRef<HTMLDivElement | null>(null)
+
 	const filteredDevs = devs.filter(dev => {
 		const roleMatches = roleFilter === 'all' || dev.role === roleFilter
 		const levelMatches = levelFilter === 'all' || dev.level === levelFilter
@@ -73,8 +75,35 @@ export function TopDev({ loading }: TopDevProps) {
 		return roleMatches && levelMatches && statusMatches
 	})
 
+	const visibleDevs = filteredDevs.slice(0, visibleCount)
+
+	useEffect(() => {
+		const scrollContainer = loaderRef.current?.parentElement
+
+		if (!scrollContainer) return
+
+		const observer = new IntersectionObserver(
+			entries => {
+				if (entries[0].isIntersecting) {
+					setVisibleCount(prev => Math.min(prev + 20, filteredDevs.length))
+				}
+			},
+			{
+				root: scrollContainer,
+				rootMargin: '0px',
+				threshold: 1.0,
+			}
+		)
+
+		if (loaderRef.current) observer.observe(loaderRef.current)
+
+		return () => {
+			observer.disconnect()
+		}
+	}, [filteredDevs.length])
+
 	return (
-		<div>
+		<div className='page'>
 			<Header />
 			<div className='top-dev-filters'>
 				<select
@@ -116,7 +145,7 @@ export function TopDev({ loading }: TopDevProps) {
 
 			<div className='top-dev'>
 				<CanvasHighlight />
-				{filteredDevs.map(dev => (
+				{visibleDevs.map(dev => (
 					<DevCard
 						key={dev.name}
 						loading={loading}
@@ -128,6 +157,7 @@ export function TopDev({ loading }: TopDevProps) {
 						avatarUrl={dev.avatarUrl}
 					/>
 				))}
+				<div ref={loaderRef} style={{ height: 30 }} />
 			</div>
 		</div>
 	)

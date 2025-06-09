@@ -6,6 +6,32 @@
 	box-sizing: border-box;
 	margin: 0 auto;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-rows: max-content;
+	flex: 1 1 auto; /* или просто flex: 1; */
+	overflow-y: auto;
+	scrollbar-gutter: stable;
+	height: 100%;
+	width: 100%;
+}
+
+.top-dev::-webkit-scrollbar {
+	width: 20px;
+}
+
+.top-dev::-webkit-scrollbar-track {
+	background: var(--color-zinc-900);
+	border-left: 3px solid var(--color-zinc-800);
+}
+
+.top-dev::-webkit-scrollbar-thumb {
+	background-color: var(--color-zinc-800);
+	transition: background-color 0.3s;
+	border: 5px solid var(--color-zinc-900);
+	cursor: pointer;
+}
+
+.top-dev::-webkit-scrollbar-thumb:hover {
+	background-color: var(--color-zinc-700);
 }
 
 .top-dev-filters {
@@ -67,6 +93,10 @@
 		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		max-width: 600px;
 		padding: 20px;
+	}
+
+	.top-dev::-webkit-scrollbar {
+		width: 0;
 	}
 }
 

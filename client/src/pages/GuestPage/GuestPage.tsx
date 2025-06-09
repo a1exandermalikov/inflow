@@ -6,7 +6,7 @@ import { Button } from '../../components/Button/Button'
 export function GuestPage() {
 	document.title = 'Welcome to Information Flow'
 	return (
-		<div className='guest-page'>
+		<div className='page'>
 			<Header />
 			<div className='hero'>
 				<CanvasBackground />

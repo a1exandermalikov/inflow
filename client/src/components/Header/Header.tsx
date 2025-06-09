@@ -85,7 +85,7 @@ export function Header() {
 				{/* Добавляем inline-стиль visibility */}
 				<div
 					className='search-field-wrapper'
-					style={{ visibility: showSearch ? 'visible' : 'hidden' }}
+					style={{ display: showSearch ? 'initial' : 'none' }}
 				>
 					<div className='search-field'>
 						<input type='text' placeholder='press "/" to search' />
