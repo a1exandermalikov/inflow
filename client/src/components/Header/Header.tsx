@@ -3,12 +3,15 @@ import { useState, useEffect, useRef } from 'react'
 import { Icon } from '../Icon/Icon'
 import { Button } from '../Button/Button'
 import { Navigation } from '../Navigation/Navigation'
+import { useLocation } from 'react-router-dom'
 
 export function Header() {
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [isRendered, setIsRendered] = useState(false)
 	const touchStartX = useRef<number | null>(null)
 	const touchEndX = useRef<number | null>(null)
+
+	const location = useLocation()
 
 	useEffect(() => {
 		if (menuOpen) {
@@ -59,6 +62,11 @@ export function Header() {
 		}
 	}, [])
 
+	// Пути, где нужно показывать поиск
+	const pathsWithSearch = ['/top', '/courses']
+
+	const showSearch = pathsWithSearch.includes(location.pathname)
+
 	return (
 		<header className='header'>
 			<div className='top-row'>
@@ -74,7 +82,11 @@ export function Header() {
 					</div>
 				</div>
 
-				<div className='search-field-wrapper'>
+				{/* Добавляем inline-стиль visibility */}
+				<div
+					className='search-field-wrapper'
+					style={{ visibility: showSearch ? 'visible' : 'hidden' }}
+				>
 					<div className='search-field'>
 						<input type='text' placeholder='press "/" to search' />
 						<button className='search-btn'>

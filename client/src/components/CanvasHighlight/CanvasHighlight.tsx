@@ -46,7 +46,7 @@ export const CanvasHighlight: React.FC = () => {
 				mouse.y,
 				radius
 			)
-			gradient.addColorStop(0, 'rgba(185, 28, 28, 0.02)')
+			gradient.addColorStop(0, 'rgba(153, 27, 27, 0.03)')
 			gradient.addColorStop(1, 'rgba(185, 28, 28, 0)')
 
 			ctx.globalCompositeOperation = 'lighter'
